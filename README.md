@@ -1,6 +1,13 @@
-Course Project for Getting and Cleaning Data Course under Data Science specialization
+Course Project for Getting and Cleaning Data Course under Data Science specialization.
+This document describes data transformation flow to obtain course objectives:
+> You should create one R script called run_analysis.R that does the following.
+Merges the training and the test sets to create one data set.
+Extracts only the measurements on the mean and standard deviation for each measurement.
+Uses descriptive activity names to name the activities in the data set
+Appropriately labels the data set with descriptive variable names.
+From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-#Data Transformation flow
+# Data Transformation flow
 
 ## Download and unzip data
 ```
@@ -76,7 +83,7 @@ X_mean_std <- merge(X_mean_std, activity_labels, by='activityId')
 X_mean_std <- select(X_mean_std, -(activityId))
 ```
 
-## Form a new set by grouping by two variables - id of subject and activity name using group_by from dplyr library. Apply summarize_all from dplyr library using mean() function as an argument to apply to all variables in the set. Save to .csv file using write.table()
+## Form a new set by grouping by two variables - id of subject and activity name using group_by from dplyr library. Apply summarize_all from dplyr library using mean() function as an argument to apply to all variables in the set to obtain average values. Save to .csv file using write.table()
 
 ```
 ## Use summarize over grouped tbl by Subject Id and activity
